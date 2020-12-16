@@ -256,10 +256,35 @@ urlpatterns = [
 docker-compose run web python3 manage.py startapp epic7_charactor
 
 sudo chown -R $USER:$USER .
-code epic7_charactor/models.py
+code user_data/models.py
 
 違うな。まとめてつくるのか
 rm -rf epic7_charactor
 
+docker-compose run web python3 manage.py startapp user_data
+sudo chown -R $USER:$USER .
+
+モデルを有効化
+mysite/settings.py
+INSTALLED_APPS = 
+user_data.apps.User_dataConfig
+
+[opc@centos7 docker-django]$ code composeexample/settings.py 
+[opc@centos7 docker-django]$ docker exec -it b82 /bin/bash
+root@b827ac5e27b3:/code# python manage.py makemigrations user_data
+
+makemigrationsでアプリ/migrations/配下の000*にテーブル定義を書き出す
+migrateで適用
 
 python manage.py migrate
+
+adminにアプリを登録する
+アプリ/admin.py
+
+一覧として表示する
+アプリ/views.py
+
+### memo
+
+modelにenumはないのか？smallintegerでも大きすぎるな
+modelのintegerにdefalutは必須

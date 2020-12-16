@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['140.238.63.114','localhost']
 # Application definition
 
 INSTALLED_APPS = [
+    'user_data.apps.UserDataConfig',
     'polls.apps.PollsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
