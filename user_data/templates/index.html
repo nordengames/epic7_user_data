@@ -7,3 +7,13 @@
 {% else %}
     <p>No polls are available.</p>
 {% endif %}
+
+{% if equip_list %}
+    <ul>
+    {% for equip in equip_list %}
+        <li><a href="/user_data/{{ equipment.id }}/">{{ equipment.is }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}

@@ -289,7 +289,22 @@ adminにアプリを登録する
 https://noumenon-th.net/programming/2019/11/25/django-abstractuser/
 
 composeexample　プロジェクト
-user_authアプリ
+loginアプリ
+
+そもそもURLアクセスに関してどうなっているのか
+ip:port/admin　ログイン画面
+ip:port/polls　表示された
+ip:port/user_data　エラー。using the URLconf defined in composeexample.urls, Django tried there URL patterns, in this order:
+  1.polls/
+  2.admin/
+the current path, user_Data, didnot match any of there
+
+composeexample/urls.py
+urlpatterns = [
+    path('polls/', include('polls.urls')),
+    path('admin/', admin.site.urls),
+]
+に追加でいけそう
 
 ### memo
 

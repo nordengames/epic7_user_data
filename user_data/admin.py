@@ -9,8 +9,12 @@ class CharacterAdmin(admin.ModelAdmin):
   list_display_links = ('character_name', 'element', 'Stars', 'Level',)
 
 class EquipmentAdmin(admin.ModelAdmin):
-  list_display = ('Level',)
-  list_display_links = ('Level',)
+  fieldsets = [
+    ('セット', {'fields': ['set_option']}),
+    ('ステータス', {'fields': ['atk','atk_rate','defence','defence_rate','hp','hp_rate','res','hit','cri_rate','cri_dmg','speed']})
+  ]
+  list_display= ('Level','S_Level','rare_rank', 'Part', 'set_option','atk','atk_rate', 'defence', 'defence_rate', 'hp', 'hp_rate', 'res', 'hit', 'cri_dmg', 'cri_rate', 'speed')
+  list_filter = ['Part','set_option']
 
 admin.site.register(Character, CharacterAdmin)
 admin.site.register(Equipment, EquipmentAdmin )
