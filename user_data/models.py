@@ -11,3 +11,15 @@ class Character(models.Model):
   Favorability_rating = models.SmallIntegerField(default=1)
   add_date = models.DateTimeField(default=timezone.now)
   mod_date = models.DateTimeField(default=timezone.now)
+
+class Equipment(models.Model):
+  equip_parts = (
+    (1, "武器"),
+    (2, "頭"),
+    (3, "体"),
+    (4, "首"),
+    (5, "指"),
+    (6, "足"),
+  )
+  Level = models.SmallIntegerField(default=0)
+  Part = models.SmallIntegerField(choices=equip_parts)

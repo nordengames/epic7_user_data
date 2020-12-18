@@ -284,7 +284,30 @@ adminにアプリを登録する
 一覧として表示する
 アプリ/views.py
 
+
+### user 管理
+https://noumenon-th.net/programming/2019/11/25/django-abstractuser/
+
+composeexample　プロジェクト
+user_authアプリ
+
 ### memo
 
 modelにenumはないのか？smallintegerでも大きすぎるな
+    以下の形で行けた
+    ```
+      class Equipment(models.Model):
+      equip_parts = (
+    (1, "武器"),
+    (2, "頭"),
+    (3, "体"),
+    (4, "首"),
+    (5, "指"),
+    (6, "足"),
+    )
+    Level = models.SmallIntegerField(default=0)
+    Part = models.SmallIntegerField(choices=equip_parts)
+    ```
+
 modelのintegerにdefalutは必須
+
