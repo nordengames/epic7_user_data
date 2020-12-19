@@ -11,6 +11,13 @@ class Character(models.Model):
   (4,"光"),
   (5,"闇"),
   )
+  roles = (
+    (1,"ナイト"),
+    (2,"アサシン"),
+    (3,"メイジ"),
+    (4,"プリースト"),
+    (5,"ウォーリアー"),
+  )
   char_stars = (
     (1,"☆☆☆"),
     (2,"☆☆☆☆"),
@@ -19,6 +26,7 @@ class Character(models.Model):
   )
   character_name = models.CharField(max_length=30)
   element = models.SmallIntegerField(choices=char_elements)
+  role = models.SmallIntegerField(choices=roles, default=1)
   Stars = models.SmallIntegerField(choices=char_stars)
   Level = models.SmallIntegerField(default=1)
   Favorability_rating = models.SmallIntegerField(default=1)

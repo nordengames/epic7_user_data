@@ -5,8 +5,8 @@ from .models import Character
 from .models import Equipment
 
 class CharacterAdmin(admin.ModelAdmin):
-  list_display = ('character_name', 'element', 'Stars', 'Level',)
-  list_display_links = ('character_name', 'element', 'Stars', 'Level',)
+  list_display = ('character_name', 'element','role', 'Stars', 'Level',)
+  list_display_links = ('character_name', 'element', 'role', 'Stars', 'Level',)
 
 class EquipmentAdmin(admin.ModelAdmin):
   list_display= ('Level','S_Level','rare_rank', 'Part', 'set_option','atk','atk_rate', 'defence', 'defence_rate', 'hp', 'hp_rate', 'res', 'hit', 'cri_dmg', 'cri_rate', 'speed')
