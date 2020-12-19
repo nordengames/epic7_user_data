@@ -29,7 +29,8 @@ class Equipment(models.Model):
   level_ranks = (
     (1,'under85'),
     (2,'85'),
-    (3,'90'),
+    (3,'88'),
+    (4,'90'),
   )
   rare_ranks = (
     (1,'エピック'),
@@ -57,12 +58,13 @@ class Equipment(models.Model):
     (10,"会心"),
     (11,"生命"),
     (12,"攻撃"),
+    (13,"防御"),
   )
-  Level = models.PositiveSmallIntegerField(choices=level_ranks)
-  S_Level = models.PositiveSmallIntegerField(default=1)
+  Level = models.PositiveSmallIntegerField(choices=level_ranks,default=2)
+  S_Level = models.PositiveSmallIntegerField(default=15)
   rare_rank = models.PositiveSmallIntegerField(choices=rare_ranks,default=1)
   Part = models.PositiveSmallIntegerField(choices=equip_parts)
-  set_option = models.PositiveSmallIntegerField(choices=set_options,default=1)
+  set_option = models.PositiveSmallIntegerField(choices=set_options,default=7)
   atk = models.PositiveSmallIntegerField(blank=True,null=True)
   atk_rate = models.PositiveSmallIntegerField(blank=True,null=True)
   defence = models.PositiveSmallIntegerField(blank=True,null=True)
